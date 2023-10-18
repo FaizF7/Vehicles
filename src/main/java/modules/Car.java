@@ -5,10 +5,12 @@ import interfaces.ICharge;
 public class Car extends Vehicle implements ICharge {
 
     private int numDoors;
+    private int batterySize;
 
     public Car(String name, String fuelType,int batterySize, int numWheels, Boolean isClean, int doors){
-        super(name, fuelType, batterySize, numWheels, isClean);
+        super(name, fuelType, numWheels, isClean);
         this.numDoors=doors;
+        this.batterySize=batterySize;
     }
 
     public int getNumDoors() {
@@ -20,13 +22,15 @@ public class Car extends Vehicle implements ICharge {
     }
 
     public int getBatterySize(){
-        return this.getBatterySize(); //Represents a battery in this case
+        return this.batterySize; //Represents a battery in this case
     }
 
+    public void setBatterySize(int batterySize) {
+        this.batterySize = batterySize;
+    }
 
-
-    public String chargeUp(int charge){
-        return "Car battery charged to " + this.getBatterySize() + "capacity";
+    public String chargeUp(){
+        return "Car battery charged to " + this.getBatterySize() + " capacity";
     }
 
     public double cleanPrice(){

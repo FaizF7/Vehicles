@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class PetrolStation {
 
     int fuelStock;
-    int till;
+    double till;
     private ArrayList<Vehicle> vehicles;
 
     public PetrolStation(int fuelStock){
@@ -31,33 +31,38 @@ public class PetrolStation {
     }
 
 
-    public double addFuelPriceToTill(IFuel vehicle){
-        double price = vehicle.getTankSize() *1.5;
-        return price;
+    public void addFuellingPriceToTill(IFuel vehicle){
+        till += vehicle.getTankSize() *1.5;
     }
 
-    public double AddChargePriceToTill(ICharge vehicle){
-        double price = vehicle.getBatterySize() *1.5;
-        return price;
-    }
-
-    public double addCleanPriceToTill(Motorbike vehicle){
-        return (vehicle.getNumWheels())+ vehicle.getTankSize();
-    }
-
-    public double calculateCleanPrice(Car vehicle){
-        double price=10;
-        if (vehicle.getIsClean()==true){
-            price+= (vehicle.getNumWheels() + vehicle.getNumDoors())*5;
-        }
-
-        return price;
-    }
-
-    public double addCleanPriceToTill(Vehicle vehicle){
-
+    public void addChargingPriceToTill(ICharge vehicle){
+        till += vehicle.getBatterySize() *1.5;
     }
 
 
+
+    public void addCleanPriceToTill(Vehicle vehicle){
+        till+=vehicle.cleanPrice();
+    }
+
+    public int getFuelStock() {
+        return this.fuelStock;
+    }
+
+    public void setFuelStock(int fuelStock) {
+        this.fuelStock = fuelStock;
+    }
+
+    public double getTill() {
+        return this.till;
+    }
+
+    public void setTill(double till) {
+        this.till = till;
+    }
+
+    public ArrayList<Vehicle> getVehicles() {
+        return this.vehicles;
+    }
 
 }

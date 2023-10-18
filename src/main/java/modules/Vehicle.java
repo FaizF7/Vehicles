@@ -12,11 +12,10 @@ public abstract class Vehicle {
 
 
 
-    public Vehicle(String name, String fuelType,int tankSize, int numWheels, Boolean isClean){
+    public Vehicle(String name, String fuelType, int numWheels, Boolean isClean){
         this.name = name;
         this.fuelType=fuelType;
         this.numWheels=numWheels;
-        this.tankSize=tankSize;
         this.isClean=isClean;
     }
 
